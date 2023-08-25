@@ -1,23 +1,35 @@
 .button {
-	background: #7b61ff;
-	border-radius: 12px;
-    color: #fff;
-
-    transition: background-color 0.2s ease-in;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #7B61FF;
+    border-radius: 12px;
 }
 
-.button:hover {
-	background-color: #6344ff;
+.button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #2b244e;
+    top: 0;
+    left: -100%;
+    transition: all .3s ease-in-out;
+    z-index: -1;
+}
+
+.button:hover::after {
+    left: 0;
 }
 
 .button--huge {
     padding: 24px;
     font-size: 18px;
     font-weight: 600;
-
-    display: flex;
-    column-gap: 8px;
     align-items: center;
+    padding: 24px;
+    gap: 8px;
+    display: flex;
 }
 
 @media only screen and (max-width: 600px) {
